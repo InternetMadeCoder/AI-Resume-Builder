@@ -1,26 +1,31 @@
+import { useEffect, useState } from "react";
+
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrolled]);
+
   return (
-    <nav className="navbar bg-white">
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="navbar-content">
-          <div className="brand-and-toggler">
-            <a href="index.html" className="navbar-brand">
-              <img
-                src="assets/images/curriculum-vitae.png"
-                alt=""
-                className="navbar-brand-icon"
-              />
-              <span className="navbar-brand-text">
-                build <span>resume.</span>
-              </span>
-            </a>
-            <button type="button" className="navbar-toggler-btn">
-              <div className="bars">
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
-              </div>
-            </button>
+          <a href="/" className="navbar-brand">
+            <span className="navbar-brand-text">
+              <span className="highlight">Resume</span> Rocket
+            </span>
+          </a>
+          <div className="navbar-right">
+            {/* Optional: Add navigation items or buttons here */}
           </div>
         </div>
       </div>

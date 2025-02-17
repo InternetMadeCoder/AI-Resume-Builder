@@ -28,6 +28,7 @@ html{
 body{
     font-size: 1.6rem;
     font-family: var(--font-poppins);
+    padding-top: 70px;
 }
 
 button{
@@ -165,7 +166,7 @@ a{
 
 .btn-secondary:hover{
     background-color: var(--clr-blue);
-    color: var(--clr-white);
+    color: var (--clr-white);
     border-color: var(--clr-blue);
 }
 
@@ -173,41 +174,66 @@ a{
     margin-right: 1rem!important;
 }
 
-/* navbar part */
-.navbar{
-    height: 80px;
+/* Updated navbar styles */
+.navbar {
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-.navbar .container{
+.navbar.scrolled {
+    height: 60px;
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.navbar-content {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navbar-brand{
+.navbar-brand {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    font-size: 1.8rem;
+    transition: transform 0.3s ease;
 }
-.navbar-brand-text{
+
+.navbar-brand:hover {
+    transform: translateY(-1px);
+}
+
+.navbar-brand-text {
+    font-size: 2.2rem;
+    font-weight: 600;
     color: var(--clr-dark);
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand-text .highlight {
+    color: var(--clr-blue);
+    font-weight: 700;
+}
+
+/* Remove the existing span style since we're using highlight class */
+.navbar-brand-text span:not(.highlight) {
     font-weight: 600;
 }
-.navbar-brand-text span{
-    color: var(--clr-blue);
+
+/* Remove logo-related styles */
+.navbar-brand-icon {
+    display: none;
 }
-.navbar-brand-icon{
-    width: 25px;
-    margin-right: 6px;
-    opacity: 0.8;
-}
-.brand-and-toggler{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
 .header{
     min-height: calc(100vh - 80px);
     display: flex;
