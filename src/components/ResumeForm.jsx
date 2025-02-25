@@ -5,6 +5,7 @@ import {
   getFieldName,
   getEmptyItem,
 } from "../utils/formHelpers";
+import "../styles/ResumeBuilder.css";
 
 const ResumeForm = ({ formData, onFormChange }) => {
   const [errors, setErrors] = useState({});

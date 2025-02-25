@@ -1,31 +1,53 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrolled]);
+  }, []);
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    navigate("/");
+  };
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="navbar-content">
-          <a href="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             <span className="navbar-brand-text">
               <span className="highlight">Resume</span> Rocket
             </span>
-          </a>
+          </Link>
           <div className="navbar-right">
-            {/* Optional: Add navigation items or buttons here */}
+            {isAuthenticated ? (
+              <>
+                <Link to="/builder" className="btn btn-secondary">
+                  My Resumes
+                </Link>
+                <button onClick={handleLogout} className="btn btn-primary">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/signin" className="btn btn-secondary">
+                  Sign In
+                </Link>
+                <Link to="/signup" className="btn btn-primary">
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

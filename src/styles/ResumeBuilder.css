@@ -1,0 +1,119 @@
+/* Resume Builder Specific Styles */
+
+#about-sc{
+    padding: 64px 0;
+}
+
+.cv-form-row-title{
+    background-color: var(--clr-dark);
+    padding: 0.8rem 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.cv-form-row-title h3{
+    color: var(--clr-white);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 1.7rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form styles */
+.cv-form-blk{
+    margin: 3rem 0;
+}
+
+.cv-form-row{
+    padding: 3rem 2rem 0 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+textarea{
+    resize: none;
+}
+
+.form-label {
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-control {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Preview section */
+.preview-cnt{
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 32% auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    overflow: hidden;
+}
+
+.preview-cnt-l{
+    padding: 3rem 3rem 2rem 3rem;
+    background-color: var(--clr-blue-dark);
+    color: var(--clr-white);
+}
+
+.preview-cnt-r{
+    padding: 3rem 3rem 3rem 4rem;
+    background-color: var(--clr-white);
+}
+
+.preview-item-name {
+    font-family: 'Poppins', sans-serif;
+}
+
+.preview-blk-title h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ... copy all resume preview and form specific styles from your provided CSS ... */
+
+/* Print styles */
+.print-btn-sc{
+    margin: 2rem 0 6rem 0;
+}
+
+@media print{
+    body *{
+        visibility: hidden;
+    }
+
+    .non_print_area{
+        display: none;
+    }
+
+    .print_area, .print_area *{
+        visibility: visible;
+    }
+
+    .print_area{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+    }
+}
+
+/* Responsive Grid */
+@media screen and (min-width: 768px){
+    .cols-3{
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+    }
+    .cols-2{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .cv-form-row{
+        padding: 3rem 3rem 0rem 3rem;
+    }
+}
