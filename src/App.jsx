@@ -12,6 +12,7 @@ import ResumePreview from "./components/ResumePreview";
 import PrintButton from "./components/PrintButton";
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
+import AICareerCoach from "./components/AICareerCoach";
 import "./App.css";
 
 function App() {
@@ -127,6 +128,16 @@ function App() {
                 <ResumePreview data={formData} />
                 <PrintButton onPrint={handlePrint} />
               </div>
+            )
+          }
+        />
+        <Route
+          path="/career-coach"
+          element={
+            !isAuthenticated ? (
+              <Navigate to="/signin" replace />
+            ) : (
+              <AICareerCoach />
             )
           }
         />

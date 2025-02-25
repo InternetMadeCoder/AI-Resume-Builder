@@ -32,7 +32,10 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
             {isAuthenticated ? (
               <>
                 <Link to="/builder" className="btn btn-secondary">
-                  My Resumes
+                  Resume Builder
+                </Link>
+                <Link to="/career-coach" className="btn btn-secondary">
+                  Career Coach
                 </Link>
                 <button onClick={handleLogout} className="btn btn-primary">
                   Logout
